@@ -1,0 +1,58 @@
+#include <iostream>
+#include <string>              //using class, constructor ,encapsulation, access modifiers
+using namespace std;
+class BankAccount
+{
+private:
+    double balance;
+    string accountNumber;
+public:
+    string holderName;
+    // Constructor to initialize account details
+    BankAccount(string accNo, string name, double initialBalance) {
+        accountNumber = accNo;
+        holderName = name;
+        balance = initialBalance;
+    }
+    // Method to deposit money
+    void deposit(double amount)
+{
+        if (amount > 0) {
+            balance += amount;
+            cout << "Deposited: " << amount << endl;
+        } else {
+            cout << "Invalid deposit amount!" << endl;
+        }
+    }
+    // Method to withdraw money
+    void withdraw(double amount)
+{
+        if (amount <= balance && amount > 0) {
+            balance -= amount;
+            cout << "Withdrawn: " << amount << endl;
+        } else {
+            cout << "Invalid or insufficient funds!" << endl;
+        }
+    }
+    // Method to check current balance
+    void checkBalance()
+{
+        cout << "Account Holder: " << holderName << endl;
+        cout << "Account Number: " << accountNumber << endl;
+        cout << "Current Balance: " << balance << endl;
+}
+};
+int main() 
+{
+    // Creating a bank account object
+    BankAccount acc("975318642", "Hari", 5500.41);
+    // Displaying initial balance
+    acc.checkBalance();
+    // Deposit and Withdraw operations
+    acc.deposit(1500.0);
+    acc.withdraw(3000.0);
+    // Final balance check
+    cout << "\nAfter transactions:\n";
+    acc.checkBalance();
+    return 0;
+}
