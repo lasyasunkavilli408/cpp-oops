@@ -1,0 +1,48 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Student {
+private:
+    int rollNo;
+    float marks;
+
+public:
+    string name;
+    string branch;
+    Student(int r, float m, string n, string b) //constructor to initialize all data
+    {
+        rollNo = r;
+        marks = m;
+        name = n;
+        branch = b;
+    }
+    void setMarks(float m)
+    {
+        marks = m;// for marks
+    }
+    float getMarks()
+    {
+        return marks; //getter for marks
+    }
+    void displayDetails()
+    {  // Method to display student details
+        cout << "Student Details:" << endl;
+        cout << "Name: " << name << endl;
+        cout << "Branch: " << branch << endl;
+        cout << "Roll No: " << rollNo << endl;
+        cout << "Marks: " << marks << endl;
+    }
+};
+int main() 
+{
+    // Creating object and initializing with constructor
+    Student s1(408, 80.5, "lasya", "AIML");
+    // Displaying student details
+    s1.displayDetails();
+    // Updating marks using setter
+    s1.setMarks(94.5);
+    // Display updated details
+    cout << "\nAfter updating marks:\n";
+    s1.displayDetails();
+    return 0;
+}
